@@ -6,22 +6,22 @@
 
 No shop. No coins. No "supporter only". Every single cosmetic is unlocked for everyone, forever.
 
-I really wanted a cat that sits on my head... but every cute cosmetic I found cost money. So now there's a wardrobe where **everything is free, for everyone** — and it has *so* many cats. 🐱🌸
+I really wanted a cat that sits on my head... but every cute cosmetic I found cost money. So now there's a wardrobe where **everything is free, for everyone** — and it has *so* many cats.
 
 ---
 
-## 🐾 Living pets that sit on your head
+## Living pets that sit on your head
 
 ![Meet the pets](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/gallery/00_meet_the_pets.png)
 
 **10 cats + Mini Moosh**, and they're not statues — they're *alive*:
 
-- 👀 **Blink** (sometimes twice), **look around**, and tilt their heads when they're curious
-- 👂 **Twitch their ears**, and flatten them when you get hurt or sneak
-- 🐾 **Knead** ("make biscuits") on your head every now and then
-- 😴 **Fall asleep** if you stand still for a while — and **purr** — then wake up with a stretch
-- 🎐 **Swish their tails**, faster when you run
-- 🐷 **Mini Moosh** bounces, flops its ears, wiggles its tail and its little sprout sways in the breeze
+- **Blink** (sometimes twice), **look around**, and tilt their heads when they're curious
+- **Twitch their ears**, and flatten them when you get hurt or sneak
+- **Knead** ("make biscuits") on your head every now and then
+- **Fall asleep** if you stand still for a while — and **purr** — then wake up with a stretch
+- **Swish their tails**, faster when you run
+- **Mini Moosh** bounces, flops its ears, wiggles its tail and its little sprout sways in the breeze
 
 | Pet | |
 |---|---|
@@ -37,7 +37,7 @@ Pick where your pet rides: **lying on your head**, **sitting on your head**, or 
 
 ![Snowball on head](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/gallery/01_snowball_on_head.png)
 
-## 🎀 Hats & back pieces
+## Hats & back pieces
 
 - **Sakura Crown** — a ring of cherry blossoms
 - **Kitty Ears** — pink, midnight or snow, and they twitch!
@@ -48,7 +48,7 @@ Wear one pet, one hat and one back piece at the same time.
 
 ![Stargazer and the Star Halo](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/gallery/04_stargazer_star_halo.png)
 
-## 👗 The wardrobe
+## The wardrobe
 
 Click the **little cherry cat** next to *Options* (title screen or pause menu), or press **K**.
 
@@ -58,7 +58,7 @@ Click the **little cherry cat** next to *Options* (title screen or pause menu), 
 
 ![Wardrobe](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/gallery/07_wardrobe.png)
 
-## 🌸 Cherry Cat theme (optional)
+## Cherry Cat theme (optional)
 
 Turn your whole game cherry-blossom pink:
 
@@ -73,7 +73,7 @@ It switches on and off instantly in *Settings* — no resource reload.
 
 ![Title screen](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/gallery/10_cherry_cat_title_screen.png)
 
-## ✏️ Make your own cosmetics
+## Make your own cosmetics
 
 Build anything in **[Blockbench](https://www.blockbench.net/)** (free) and drop the `.bbmodel` into `config/lunascosmetics/custom/`:
 
@@ -88,20 +88,20 @@ Build anything in **[Blockbench](https://www.blockbench.net/)** (free) and drop 
 - Anything in a group named `reference` is hidden in game, so you can build around a stand-in head
 - A how-to and an example bow are created in that folder the first time you launch
 
-## 👯 Friends see it too
+## Friends see it too
 
 Everyone who has Luna's Cosmetics sees each other's pets, hats and wings — **including custom Blockbench cosmetics**, which are sent to them automatically.
 
 - **Server has the mod too?** It just works. Put the same jar in the server's `mods` folder (it's a harmless no-op for players without it).
 - **Server doesn't?** Run the tiny optional relay from the GitHub repo and paste its address into *Settings → Sync relay*.
 
-## 🔄 Automatic updates
+## Automatic updates
 
 Like Essential, Luna's Cosmetics keeps itself up to date: on launch it checks [the GitHub releases](https://github.com/AttackStudios/lunascosmetics/releases), downloads the new jar for your loader and Minecraft version, verifies its SHA-256 checksum, and swaps it in **after you close the game**. You'll get a little toast when an update is ready.
 
 Don't want that? Turn off **Settings → Auto-update**.
 
-## 📦 Install
+## Install
 
 | Loader | Minecraft | Needs |
 |---|---|---|
@@ -110,7 +110,7 @@ Don't want that? Turn off **Settings → Auto-update**.
 
 Works client-side on any server. Installing it on the server as well enables automatic syncing between players.
 
-## ❓ FAQ
+## FAQ
 
 **Is it really free?** Yes. Every cosmetic, for everyone. There's no store and there never will be.
 
