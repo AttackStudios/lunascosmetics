@@ -102,6 +102,14 @@ final class DevShots {
             step(5, () -> WardrobeScreen.devTab(4));
             step(40, () -> shot("g13_wardrobe_settings"));
             step(5, () -> c.setScreen(null));
+        } else if (mode.equals("relay")) {
+            // repro: join a server without the mod, THEN paste the relay URL
+            step(60, () -> {
+                ClientConfig.get().relayUrl = System.getenv().getOrDefault("LUNAS_RELAY", "ws://127.0.0.1:8091");
+                Wardrobe.setMine(Loadout.EMPTY.with(Slot.PET, "snowball"));
+            });
+            step(200, () -> System.out.println("[relaytest] status: "
+                    + net.attackstudioyt.lunascosmetics.client.sync.ClientSync.status()));
         } else if (mode.equals("friend")) {
             // stand in front of Luna and photograph her, to prove her cosmetics synced here
             for (int i = 0; i < 6; i++) {

@@ -41,6 +41,7 @@ public final class ClientSync {
     private static final Map<String, byte[][]> INCOMING = new HashMap<>();
     private static int publishIn = -1;
     private static boolean serverHasMod;
+    private static int relayCheck;
 
     public static void init() {
         ClientPlayNetworking.registerGlobalReceiver(LoadoutsPayload.ID, (payload, ctx) -> {
@@ -82,6 +83,11 @@ public final class ClientSync {
                     RelayClient.join(room(client));
                 }
                 publish();
+            }
+            // keep the fallback relay in step with the settings (pasted URL, relay restarted...)
+            if (publishIn <= 0 && !serverHasMod && ++relayCheck >= 60 && client.getNetworkHandler() != null) {
+                relayCheck = 0;
+                RelayClient.ensure(room(client));
             }
         });
     }

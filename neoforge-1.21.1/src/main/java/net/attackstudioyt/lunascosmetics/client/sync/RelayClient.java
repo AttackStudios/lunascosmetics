@@ -38,11 +38,32 @@ public final class RelayClient {
     private static volatile WebSocket socket;
     private static volatile String room;
     private static volatile boolean connecting;
+    /** the relay URL the current connection (or attempt) is for */
+    private static volatile String activeUrl = "";
     private static volatile int generation;
     private static CompletableFuture<?> sendChain = CompletableFuture.completedFuture(null);
 
     public static boolean connected() {
         return socket != null;
+    }
+
+    /**
+     * Called every few seconds while on a server without the mod: connects as soon as a
+     * relay URL is set, follows URL changes, and retries if the relay was down.
+     */
+    public static synchronized void ensure(String wantedRoom) {
+        String url = ClientConfig.get().relayUrl == null ? "" : ClientConfig.get().relayUrl.trim();
+        if (url.isEmpty()) {
+            if (socket != null || room != null) {
+                leave();
+            }
+            return;
+        }
+        if (!wantedRoom.equals(room) || !url.equals(activeUrl)) {
+            join(wantedRoom);
+        } else if (socket == null && !connecting) {
+            connect(generation);
+        }
     }
 
     public static synchronized void join(String newRoom) {
@@ -70,6 +91,7 @@ public final class RelayClient {
             return;
         }
         connecting = true;
+        activeUrl = url.trim();
         URI uri;
         try {
             uri = URI.create(url.trim());
