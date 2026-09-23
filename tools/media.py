@@ -23,7 +23,7 @@ CAT = lm.load(os.path.join(A, "models/cosmetic/cat.json"))
 MOOSH = lm.load(os.path.join(A, "models/cosmetic/moosh.json"))
 LOAF = {"leg_front_left": {"rot": (-90, 0, 0)}, "leg_front_right": {"rot": (-90, 0, 0)},
         "leg_back_left": {"rot": (90, -15, 0)}, "leg_back_right": {"rot": (90, 15, 0)},
-        "tail": {"rot": (-38, 25, 0)}, "tail_tip": {"rot": (-22, 30, 0)}}
+        "tail": {"rot": (-4, 72, 0)}, "tail_tip": {"rot": (0, 78, 0)}}   # curled round the side for renders
 SIT = {"body": {"rot": (-60, 0, 0), "offset": (0, -2.9, -0.8)}, "head": {"rot": (60, 0, 0)},
        "leg_front_left": {"rot": (60, 0, 0), "offset": (0, 1.215, 2.104)},
        "leg_front_right": {"rot": (60, 0, 0), "offset": (0, 1.215, 2.104)},
@@ -170,13 +170,14 @@ def banner():
     bg = gradient(W, H, (58, 20, 40), (214, 90, 138))
     sprinkle(bg, 70, 7, big=7)
     # a soft stage for the pets
-    shadow_under(bg, 1470, 560, 420, 24, 90)
-    order = [("snowball", "loaf", 150), ("mini_moosh", None, 200), ("luna", "sit", 250), ("sakura", "sit", 285),
-             ("stargazer", "loaf", 150), ("marmalade", "sit", 230)]
-    xs = [1130, 1255, 1375, 1515, 1665, 1800]
-    for (name, pose, h), x in zip(order, xs):
-        im = fit(render_pet(name, pose, 16, (600, 600), yaw=-25 + (x - 1470) / 20, pitch=12), 190, h)
-        bg.alpha_composite(im, (x - im.width // 2, 566 - im.height))
+    shadow_under(bg, 1450, 562, 430, 22, 90)
+    # evenly spaced, each fitted into its own slot so nobody overlaps
+    order = [("snowball", "loaf"), ("mini_moosh", None), ("luna", "sit"), ("sakura", "sit"), ("marmalade", "loaf")]
+    slot_w, x_start = 172, 1110
+    for i, (name, pose) in enumerate(order):
+        im = fit(render_pet(name, pose, 16, (600, 600), yaw=-28, pitch=12), slot_w - 22, 250)
+        cx = x_start + i * slot_w
+        bg.alpha_composite(im, (cx - im.width // 2, 566 - im.height))
     draw_text(bg, "Luna's Cosmetics", 90, 170, 10, (255, 244, 248, 255), shadow=(160, 40, 90, 255))
     draw_text(bg, "Living pets, hats & wings", 96, 300, 5, (255, 214, 229, 255), shadow=(90, 20, 55, 255))
     draw_text(bg, "+ a Cherry Cat theme for your whole game", 96, 360, 4, (255, 193, 214, 255),

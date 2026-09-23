@@ -1,4 +1,4 @@
-![Luna's Cosmetics](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/banner.png)
+![Luna's Cosmetics](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/banner.png?v=2)
 
 # Luna's Cosmetics
 
@@ -12,7 +12,7 @@ I really wanted a cat that sits on my head... but every cute cosmetic I found co
 
 ## Living pets that sit on your head
 
-![Meet the pets](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/gallery/00_meet_the_pets.png)
+![Meet the pets](https://raw.githubusercontent.com/AttackStudios/lunascosmetics/main/media/gallery/00_meet_the_pets.png?v=2)
 
 **10 cats + Mini Moosh**, and they're not statues — they're *alive*:
 
