@@ -14,7 +14,7 @@ Download the latest jars from [Releases](https://github.com/AttackStudios/lunasc
 ## Features
 
 - 10 animated cats + **Mini Moosh** that ride on your head or shoulder — they blink, look around, twitch their ears, knead, nap and purr
-- Hats (Sakura Crown, Kitty Ears ×3, Star Halo) and back pieces (Petal Wings)
+- Hats (Sakura Crown, Kitty Ears ×3, Star Halo) and back pieces (Petal Wings, Starry Wings)
 - A wardrobe with a live 3D preview (cherry cat button next to *Options*, or **K**)
 - **Custom cosmetics**: drop Blockbench `.bbmodel` files into `config/lunascosmetics/custom/` (`hat_` / `pet_` / `back_` prefixes)
 - **Sync** between everyone with the mod — through the server if it has the mod, or the optional relay in `relay/`

@@ -47,6 +47,8 @@ public final class Cosmetics {
         // ---- back --------------------------------------------------------------------
         add(new ModelCosmetic("petal_wings", "Petal Wings", "Cherry-blossom fairy wings. Flutter flutter.", Slot.BACK,
                 0xFFFFC1D6, "petal_wings", "back/petal_wings", false, ModelCosmetic.Motion.WINGS, 1.1f, 2));
+        add(new ModelCosmetic("starry_wings", "Starry Wings", "Wings made of the night sky. The stars twinkle!", Slot.BACK,
+                0xFF4B3BA8, "starry_wings", "back/starry_wings", true, ModelCosmetic.Motion.WINGS, 1.1f, 2));
     }
 
     private static void cat(String id, String name, String desc, int accent, boolean glow, boolean twinkle) {

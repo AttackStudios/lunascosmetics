@@ -102,6 +102,24 @@ final class DevShots {
             step(5, () -> WardrobeScreen.devTab(4));
             step(40, () -> shot("g13_wardrobe_settings"));
             step(5, () -> c.setScreen(null));
+        } else if (mode.equals("wings")) {
+            step(100, () -> {
+                c.setScreen(null);
+                c.options.hudHidden = true;
+                c.options.getFov().setValue(45);
+                c.player.networkHandler.sendChatCommand("time set noon");
+                c.options.setPerspective(Perspective.THIRD_PERSON_BACK);
+                c.player.setPitch(10);
+                Wardrobe.setMine(Loadout.EMPTY.with(Slot.PET, "stargazer").with(Slot.BACK, "starry_wings"));
+            });
+            step(60, () -> shot("w1_day_back"));
+            step(5, () -> c.player.networkHandler.sendChatCommand("time set midnight"));
+            step(60, () -> shot("w2_night_back"));
+            step(5, () -> {
+                c.options.setPerspective(Perspective.THIRD_PERSON_FRONT);
+                c.player.setPitch(-10);
+            });
+            step(50, () -> shot("w3_night_front"));
         } else if (mode.equals("relay")) {
             // repro: join a server without the mod, THEN paste the relay URL
             step(60, () -> {

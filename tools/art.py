@@ -539,6 +539,77 @@ def petal_wings():
     return m, img
 
 
+def starry_wings():
+    """Night-sky wings: indigo at the spine fading to violet tips, with glowing stars."""
+    W, H = 12, 14
+    def wing(side):
+        sgn = 1 if side == "left" else -1
+        return {"name": f"wing_{side}", "pivot": [sgn * 1.0, 2.5, 2.6], "rot": [0, sgn * -18, 0],
+                "cubes": [cube((0 if sgn > 0 else -W, -7, 0), (W, H, 0))]}
+    m = {"texture_size": [64, 16], "parts": [{"name": "wings", "pivot": [0, 0, 0], "cubes": [],
+                                             "children": [wing("left"), wing("right")]}]}
+    m["parts"][0]["children"][0]["cubes"][0]["uv"] = [0, 0]
+    m["parts"][0]["children"][1]["cubes"][0]["uv"] = [2 * W, 0]
+    write_model("starry_wings", m)
+    shape = [
+        "............",
+        "......####..",
+        "....#######.",
+        "..#########.",
+        ".###########",
+        "############",
+        "###########.",
+        "#########...",
+        "..########..",
+        ".#########..",
+        ".########...",
+        "..######....",
+        "...####.....",
+        "....##......",
+    ]
+    rnd = random.Random(42)
+    stars = {}
+    for y in range(H):
+        for x in range(W):
+            if shape[y][x] == "#" and rnd.random() < 0.07:
+                stars[(x, y)] = rnd.choice(["#fffbe0", "#fff1a8", "#cfe3ff", "#ffffff"])
+    for sx, sy in ((7, 4), (4, 9)):          # two bigger 4-point sparkles
+        for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):
+            if 0 <= sx + dx < W and 0 <= sy + dy < H and shape[sy + dy][sx + dx] == "#":
+                stars[(sx + dx, sy + dy)] = "#ffffff" if (dx, dy) == (0, 0) else "#fff1a8"
+    def edge(x, y):
+        return any(not (0 <= x + dx < W and 0 <= y + dy < H) or shape[y + dy][x + dx] != "#"
+                   for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
+    def col(x, y):
+        if shape[y][x] != "#":
+            return (0, 0, 0, 0)
+        if (x, y) in stars:
+            return hexc(stars[(x, y)])
+        if edge(x, y):
+            return hexc("#140f3a")
+        f = x / (W - 1)
+        base = mix(hexc("#1c2466"), hexc("#6a4bc4"), f)
+        if (x + 2 * y) % 7 == 0:
+            base = mix(base, hexc("#3b6fd6"), 0.45)   # a faint milky-way swirl
+        return base
+    img = Image.new("RGBA", (64, 16), (0, 0, 0, 0))
+    glow = Image.new("RGBA", (64, 16), (0, 0, 0, 0))
+    px, gp = img.load(), glow.load()
+    for side, u in (("left", 0), ("right", 2 * W)):
+        for y in range(H):
+            for x in range(W):
+                c = col(x, y)
+                xx = x if side == "left" else W - 1 - x
+                px[u + xx, y] = c
+                px[u + W + (W - 1 - xx), y] = c
+                if (x, y) in stars:
+                    gp[u + xx, y] = c
+                    gp[u + W + (W - 1 - xx), y] = c
+    save(img, "textures/cosmetic/back/starry_wings.png")
+    save(glow, "textures/cosmetic/back/starry_wings_glow.png")
+    return m, img
+
+
 # =========================================================================================
 # GUI sprites (hand-drawn pixel art)
 # =========================================================================================
@@ -805,6 +876,7 @@ def main():
     ears_m, ears_t = kitty_ears()
     halo_m, halo_t = star_halo()
     wings_m, wings_t = petal_wings()
+    starry_m, starry_t = starry_wings()
     gui_sprites()
     # contact sheet of the pets at rest, for eyeballing
     sheet = Image.new("RGBA", (5 * 220, 3 * 220), (34, 30, 40, 255))
@@ -818,8 +890,9 @@ def main():
     out = os.environ.get("PREVIEW_OUT")
     if out:
         sheet.save(out)
-        hats = Image.new("RGBA", (4 * 220, 220), (34, 30, 40, 255))
-        for i, (m, t) in enumerate(((crown_m, crown_t), (ears_m, ears_t["pink"]), (halo_m, halo_t), (wings_m, wings_t))):
+        hats = Image.new("RGBA", (5 * 220, 220), (34, 30, 40, 255))
+        for i, (m, t) in enumerate(((crown_m, crown_t), (ears_m, ears_t["pink"]), (halo_m, halo_t), (wings_m, wings_t),
+                                    (starry_m, starry_t))):
             hats.paste(lm.render(m, t, {}, yaw=-30, pitch=20, px=11, size=(220, 220)), (i * 220, 0))
         hats.save(out.replace(".png", "_hats.png"))
     print("art done")

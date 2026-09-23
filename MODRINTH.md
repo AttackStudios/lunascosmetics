@@ -43,6 +43,7 @@ Pick where your pet rides: **lying on your head**, **sitting on your head**, or 
 - **Kitty Ears** — pink, midnight or snow, and they twitch!
 - **Star Halo** — floats, bobs and slowly spins (and glows)
 - **Petal Wings** — cherry-blossom fairy wings that flutter harder when you run or fall
+- **Starry Wings** — wings made of the night sky, with stars that glow in the dark
 
 Wear one pet, one hat and one back piece at the same time.
 
