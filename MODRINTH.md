@@ -6,7 +6,7 @@
 
 No shop. No coins. No "supporter only". Every single cosmetic is unlocked for everyone, forever.
 
-Made as a present for my little sister, who really wanted a cat on her head. 🐱🌸
+I really wanted a cat that sits on my head... but every cute cosmetic I found cost money. So now there's a wardrobe where **everything is free, for everyone** — and it has *so* many cats. 🐱🌸
 
 ---
 
@@ -118,7 +118,7 @@ Works client-side on any server. Installing it on the server as well enables aut
 
 **Will it work with other cosmetic mods?** It only adds its own layer, so it should play nicely with most.
 
-**Can I suggest a cosmetic?** Yes please! Open an issue on [GitHub](https://github.com/AttackStudios/lunascosmetics/issues).
+**Can I suggest a cosmetic?** Yes please!! I'd love ideas — open an issue on [GitHub](https://github.com/AttackStudios/lunascosmetics/issues).
 
 ---
 

@@ -10,7 +10,7 @@ displayName = "Luna's Cosmetics"
 authors = "AttackStudios"
 displayURL = "https://github.com/AttackStudios/lunascosmetics"
 logoFile = "assets/lunascosmetics/icon.png"
-description = '''A free wardrobe of living cats, Mini Moosh, hats and wings - plus a Cherry Cat theme for the whole game. Made for Luna.'''
+description = '''A free wardrobe of living cats, Mini Moosh, hats and wings - plus a Cherry Cat theme for the whole game.'''
 
 [[mixins]]
 config = "lunascosmetics.mixins.json"
