@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "lunascosmetics",
+  "version": "${version}",
+  "name": "Luna's Cosmetics",
+  "description": "A free wardrobe of living cats, Mini Moosh, hats and wings - plus a Cherry Cat theme for the whole game. Made for Luna.",
+  "authors": [
+    "AttackStudios"
+  ],
+  "license": "MIT",
+  "icon": "assets/lunascosmetics/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.attackstudioyt.lunascosmetics.LunasCosmetics"
+    ],
+    "client": [
+      "net.attackstudioyt.lunascosmetics.client.LunasCosmeticsClient"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "lunascosmetics.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "contact": {
+    "homepage": "https://github.com/AttackStudios/lunascosmetics",
+    "sources": "https://github.com/AttackStudios/lunascosmetics",
+    "issues": "https://github.com/AttackStudios/lunascosmetics/issues"
+  }
+}

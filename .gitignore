@@ -1,0 +1,12 @@
+build/
+.gradle/
+run/
+run-server/
+wip/
+out/
+*.log
+relay/node_modules/
+__pycache__/
+.DS_Store
+.idea/
+*.iml

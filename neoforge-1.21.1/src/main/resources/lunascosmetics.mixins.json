@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "net.attackstudioyt.lunascosmetics.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "AbstractButtonMixin",
+    "AbstractWidgetMixin",
+    "EntityRendererMixin",
+    "GuiGraphicsMixin",
+    "ScreenMixin",
+    "TitleScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

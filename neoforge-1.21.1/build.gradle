@@ -1,0 +1,51 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.147'
+}
+
+version = project.mod_version
+group = project.maven_group
+base { archivesName = project.archives_base_name }
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+neoForge {
+    version = project.neo_version
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('run/luna')
+            programArguments.addAll('--username', 'Luna', '--quickPlayMultiplayer', 'localhost:25599')
+        }
+        friend {
+            client()
+            gameDirectory = project.file('run/friend')
+            programArguments.addAll('--username', 'Friend', '--quickPlayMultiplayer', 'localhost:25599')
+        }
+        title {
+            client()
+            gameDirectory = project.file('run/title')
+        }
+        server {
+            server()
+            programArgument('--nogui')
+            gameDirectory = project.file('run-server')
+        }
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+    mods {
+        lunascosmetics {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+tasks.withType(ProcessResources).configureEach {
+    var props = [version: project.version]
+    inputs.properties props
+    filesMatching('META-INF/neoforge.mods.toml') { expand props }
+}

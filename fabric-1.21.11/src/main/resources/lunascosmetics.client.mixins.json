@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "net.attackstudioyt.lunascosmetics.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClickableWidgetMixin",
+    "CursorAccessor",
+    "DrawContextMixin",
+    "GameMenuScreenMixin",
+    "PlayerEntityRendererMixin",
+    "PressableWidgetMixin",
+    "ScreenMixin",
+    "TitleScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
